@@ -16,8 +16,8 @@ export const createUser = (user) => {
   });
 };
 
-export const fetchArticles = (author, topic, sort_by, order) => {
-  return myApi.get(`/articles`).then((res) => {
+export const fetchArticles = (query = "") => {
+  return myApi.get(`/articles${query}`).then((res) => {
     return res.data.articles;
   });
 };
@@ -26,4 +26,10 @@ export const fetchSingleArticle = (article_id) => {
   return myApi.get(`/articles/${article_id}`).then((res) => {
     return res.data.article;
   });
+};
+
+export const fetchComments = (article_id) => {
+  return myApi
+    .get(`/articles/${article_id}/comments`)
+    .then((res) => res.data.comments);
 };

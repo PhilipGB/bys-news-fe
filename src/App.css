@@ -1,8 +1,3 @@
-.ArticleCard {
-  margin: 5px;
-  background-color: antiquewhite;
-}
-
 ul {
   list-style-position: inside;
   padding-inline-start: 0px;
@@ -10,4 +5,14 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+.ArticleCard {
+  margin: 5px;
+  background-color: antiquewhite;
+}
+
+.avatar {
+  width: 210px;
+  height: auto;
 }

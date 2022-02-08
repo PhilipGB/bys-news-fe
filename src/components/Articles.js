@@ -4,14 +4,15 @@ import { fetchArticles } from "../utils/Api";
 
 import { ArticleCard } from "../components/ArticleCard";
 
-export function Articles() {
+export function Articles(props) {
   const [articles, setArticles] = useState([]);
+  const { query } = props;
 
   useEffect(() => {
-    fetchArticles().then((res) => {
+    fetchArticles(query).then((res) => {
       setArticles(res);
     });
-  }, []);
+  }, [query]);
 
   return (
     <div className="Articles">
