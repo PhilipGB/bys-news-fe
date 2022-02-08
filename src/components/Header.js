@@ -13,17 +13,17 @@ export function Header() {
     <nav className="Header flex-container">
       <NavLink to="/">Home</NavLink>
       {user ? (
-        <div>
+        <span>
           <NavLink to="/" onClick={logout}>
             Log Out
           </NavLink>
-          <NavLink to="/profile">My Profile</NavLink>
-        </div>
+          <NavLink to={`/user/${user.username}`}>Profile</NavLink>
+        </span>
       ) : (
-        <div>
+        <span>
           <NavLink to="/login">Log in</NavLink> or{" "}
           <NavLink to="/register">Register</NavLink>
-        </div>
+        </span>
       )}
     </nav>
   );

@@ -6,6 +6,8 @@ export const ageCalculator = (date) => {
   switch (true) {
     case age >= 1051200:
       return `${Math.floor(age / 525600)} years ago`;
+    case age >= 525600:
+      return `1 year ago`;
     case age > 87600:
       return `${Math.floor(age / 43800)} months ago`;
     case age > 10080:

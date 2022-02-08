@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 import { fetchSingleArticle } from "../utils/Api";
 import { ageCalculator } from "../utils/ageCalculator";
@@ -18,7 +18,8 @@ export function SingleArticle() {
   return (
     <div className="SingleArticle">
       <h4>
-        Topic: {article.topic} - Posted by {article.author}{" "}
+        Topic: {article.topic} - Posted by{" "}
+        <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
         {ageCalculator(article.created_at)}
       </h4>
       <h2>{article.title}</h2>
