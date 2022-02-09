@@ -4,6 +4,8 @@ import { fetchArticles } from "../utils/Api";
 
 import { ArticleCard } from "../components/ArticleCard";
 
+import loadingSVG from "../svg/loading.svg";
+
 export function Articles(props) {
   const [articles, setArticles] = useState([]);
   const { query } = props;
@@ -13,6 +15,9 @@ export function Articles(props) {
       setArticles(res);
     });
   }, [query]);
+
+  if (articles.length === 0)
+    return <img src={loadingSVG} alt="loading" className="loadingSVG" />;
 
   return (
     <div className="Articles">

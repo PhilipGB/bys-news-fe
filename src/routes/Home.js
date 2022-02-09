@@ -1,9 +1,10 @@
 import { Articles } from "../components/Articles";
+import { PostArticle } from "../components/PostArticle";
 
 export function Home() {
   return (
     <div className="Home">
-      <h2>Home</h2>
+      <PostArticle />
       <Articles />
     </div>
   );

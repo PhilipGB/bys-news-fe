@@ -23,7 +23,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            {/* <Route path="/profile" element={<Profile user={user} />} /> */}
             <Route path="/user/:username" element={<Profile />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
           </Routes>
