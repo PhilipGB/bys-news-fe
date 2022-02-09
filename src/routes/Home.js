@@ -4,7 +4,7 @@ import { PostArticle } from "../components/PostArticle";
 import { Sort } from "../components/Sort";
 
 export function Home() {
-  const [sort, setSort] = useState();
+  const [sort, setSort] = useState(`?sort_by=created_at`);
 
   return (
     <div className="Home">
