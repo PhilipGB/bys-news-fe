@@ -9,11 +9,13 @@ export function SingleArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [votes, setVotes] = useState();
+  const [commentCount, setCommentCount] = useState();
 
   useEffect(() => {
     fetchSingleArticle(article_id).then((res) => {
       setArticle(res);
       setVotes(res.votes);
+      setCommentCount(res.comment_count);
     });
   }, [article_id]);
 
@@ -27,7 +29,9 @@ export function SingleArticle() {
   return (
     <div className="SingleArticle">
       <h4>
-        Topic: {article.topic} - Posted by{" "}
+        Topic:{" "}
+        <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
+        Posted by{" "}
         <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
         {ageCalculator(article.created_at)}
       </h4>
@@ -37,9 +41,9 @@ export function SingleArticle() {
         <button onClick={increaseVotes} className="vote-button">
           ↑ {votes}
         </button>{" "}
-        · {article.comment_count} Comments
+        · {commentCount || 0} Comments
       </p>
-      <Comments article_id={article_id} />
+      <Comments article_id={article_id} setCommentCount={setCommentCount} />
     </div>
   );
 }

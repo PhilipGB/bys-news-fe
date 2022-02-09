@@ -8,7 +8,9 @@ export function ArticleCard(props) {
   return (
     <div className="ArticleCard">
       <h4>
-        Topic: {article.topic} - Posted by{" "}
+        Topic:{" "}
+        <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
+        Posted by{" "}
         <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
         {ageCalculator(article.created_at)}
       </h4>

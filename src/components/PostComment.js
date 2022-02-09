@@ -6,13 +6,16 @@ import { postComment } from "../utils/Api";
 export function PostComment(props) {
   const { user } = useContext(UserContext);
   const [input, setInput] = useState("");
-  const { article_id, setComments } = props;
+  const { article_id, setComments, setCommentCount } = props;
 
   const handleSubmit = (event) => {
     const comment = { username: user.username, body: input };
     postComment(article_id, comment);
     setComments((current) => {
       return [comment, ...current];
+    });
+    setCommentCount((current) => {
+      return current + 1;
     });
     setInput("");
   };

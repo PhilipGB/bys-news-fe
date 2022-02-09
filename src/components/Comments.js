@@ -7,7 +7,7 @@ import { PostComment } from "./PostComment";
 
 export function Comments(props) {
   const [comments, setComments] = useState([]);
-  const { article_id } = props;
+  const { article_id, setCommentCount } = props;
 
   useEffect(() => {
     fetchComments(article_id).then((res) => {
@@ -17,7 +17,11 @@ export function Comments(props) {
 
   return (
     <div className="Comments">
-      <PostComment article_id={article_id} setComments={setComments} />
+      <PostComment
+        article_id={article_id}
+        setComments={setComments}
+        setCommentCount={setCommentCount}
+      />
       <ul>
         {comments.map((comment, index) => {
           return <CommentCard key={index} comment={comment} />;

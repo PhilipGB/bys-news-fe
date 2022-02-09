@@ -10,6 +10,7 @@ import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Profile } from "./routes/Profile";
 import { SingleArticle } from "./routes/SingleArticle";
+import { Topics } from "./routes/Topics";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,6 +26,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/user/:username" element={<Profile />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
+            <Route path="/topics/:topic" element={<Topics />} />
           </Routes>
         </div>
       </BrowserRouter>

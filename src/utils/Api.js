@@ -41,3 +41,9 @@ export const fetchComments = (article_id) => {
 export const postComment = (article_id, comment) => {
   return myApi.post(`/articles/${article_id}/comments`, comment);
 };
+
+export const fetchTopics = () => {
+  return myApi.get(`/topics`).then((res) => {
+    return res.data.topics;
+  });
+};
