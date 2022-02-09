@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { fetchUserByName } from "../utils/Api";
 import { UserContext } from "../contexts/User";
@@ -16,11 +15,11 @@ export function Login(props) {
       fetchUserByName(username)
         .then((res) => {
           setUser(res);
-          setTimeout(() => navigate("/"), 1000);
+          setTimeout(() => navigate(-1), 1000);
         })
         .catch(() => alert("Invalid User Name, Try Again or Register"));
     }
-  }, [username, navigate, setUser]);
+  }, [username, setUser, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

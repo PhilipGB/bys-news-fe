@@ -14,7 +14,7 @@ export function Header() {
       <NavLink to="/">Home</NavLink>
       {user ? (
         <span>
-          <NavLink to="/" onClick={logout}>
+          <NavLink to="#" onClick={logout}>
             Log Out
           </NavLink>
           <NavLink to={`/user/${user.username}`}>Profile</NavLink>

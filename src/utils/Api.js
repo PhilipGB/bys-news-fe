@@ -28,8 +28,16 @@ export const fetchSingleArticle = (article_id) => {
   });
 };
 
+export const patchArticle = (article_id) => {
+  return myApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
+};
+
 export const fetchComments = (article_id) => {
   return myApi
     .get(`/articles/${article_id}/comments`)
     .then((res) => res.data.comments);
+};
+
+export const postComment = (article_id, comment) => {
+  return myApi.post(`/articles/${article_id}/comments`, comment);
 };

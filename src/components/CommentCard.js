@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { splitParagraph } from "../utils/splitParagraphs";
 
 export function CommentCard(props) {
   const { comment } = props;
@@ -9,7 +10,7 @@ export function CommentCard(props) {
         Posted by{" "}
         <NavLink to={`/user/${comment.username}`}>{comment.username}</NavLink>
       </h4>
-      <p>{comment.body}</p>
+      {splitParagraph(comment.body)}
     </div>
   );
 }

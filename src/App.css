@@ -7,6 +7,11 @@ li {
   list-style-type: none;
 }
 
+textarea {
+  resize: vertical;
+  width: 90%;
+}
+
 .ArticleCard {
   margin: 5px;
   background-color: antiquewhite;

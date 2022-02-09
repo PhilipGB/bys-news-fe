@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CommentCard } from "./CommentCard";
 
 import { fetchComments } from "../utils/Api";
+import { PostComment } from "./PostComment";
 
 export function Comments(props) {
   const [comments, setComments] = useState([]);
@@ -16,7 +17,7 @@ export function Comments(props) {
 
   return (
     <div className="Comments">
-      <h2>Comments</h2>
+      <PostComment article_id={article_id} setComments={setComments} />
       <ul>
         {comments.map((comment, index) => {
           return <CommentCard key={index} comment={comment} />;
