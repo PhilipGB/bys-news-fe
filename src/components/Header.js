@@ -11,13 +11,14 @@ export function Header() {
 
   return (
     <nav className="Header flex-container">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/topics">Topics</NavLink>
+      <span>
+        <NavLink to="/">Home</NavLink> <NavLink to="/topics">Topics</NavLink>
+      </span>
       {user ? (
         <span>
           <NavLink to="#" onClick={logout}>
             Log Out
-          </NavLink>
+          </NavLink>{" "}
           <NavLink to={`/user/${user.username}`}>Profile</NavLink>
         </span>
       ) : (
