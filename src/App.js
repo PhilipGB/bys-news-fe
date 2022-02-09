@@ -26,6 +26,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/user/:username" element={<Profile />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
+            <Route path="/topics" element={<Topics />} />
             <Route path="/topics/:topic" element={<Topics />} />
           </Routes>
         </div>

@@ -12,6 +12,7 @@ export function Header() {
   return (
     <nav className="Header flex-container">
       <NavLink to="/">Home</NavLink>
+      <NavLink to="/topics">Topics</NavLink>
       {user ? (
         <span>
           <NavLink to="#" onClick={logout}>

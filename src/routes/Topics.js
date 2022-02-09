@@ -27,8 +27,14 @@ export function Topics() {
           );
         })}
       </ul>
-      <h2>Topic: {topic}</h2>
-      {topic ? <Articles query={`?topic=${topic}`} /> : <></>}
+      {topic ? (
+        <div>
+          <h2>Topic: {topic}</h2>
+          <Articles query={`?topic=${topic}`} />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
