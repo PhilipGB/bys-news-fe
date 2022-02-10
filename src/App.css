@@ -183,7 +183,8 @@ button:hover {
 }
 
 .comment-textarea,
-.post-textarea {
+.post-textarea,
+.post-title-box {
   resize: vertical;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -195,10 +196,6 @@ button:hover {
   color: #00ff00;
   padding: 8px;
   margin-top: 4px;
-}
-
-.post-textarea {
-  font-size: x-large;
 }
 
 .comment-submit {
@@ -258,6 +255,11 @@ button:hover {
   width: calc((100%) - 40px);
   box-shadow: 0px 0px 40px 25px #202020;
   padding: 5px;
+}
+
+.post-textarea,
+.post-title-box {
+  font-size: x-large;
 }
 
 .fade-in {
