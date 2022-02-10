@@ -70,7 +70,8 @@ body {
 
 .article-list,
 .comment-list,
-.Login {
+.Login,
+.PostArticle {
   margin: 10px;
   list-style-position: inside;
   padding-left: 0;
@@ -220,12 +221,91 @@ button:hover {
   font-size: 16px;
 }
 
+.newpost-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #151515;
+  border: none;
+  color: #6aa16a;
+  border-radius: 4px;
+  border: none;
+  padding: 12px 12px;
+  font-size: 16px;
+}
+
 .login-button {
   width: 600px;
 }
 
 .login-h4 {
   text-align: center;
+}
+
+.modal {
+  border-radius: 10px;
+  position: fixed !important;
+  min-height: 92vh;
+  z-index: 1;
+  background-color: #2a2d41;
+  margin: 0 20px 0;
+  width: calc((100%) - 40px);
+  box-shadow: 0px 0px 40px 25px #202020;
+
+  animation: fadeIn 0.4s;
+  -webkit-animation: fadeIn 0.4s;
+  -moz-animation: fadeIn 0.4s;
+  -o-animation: fadeIn 0.4s;
+  -ms-animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hidden-modal {
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
