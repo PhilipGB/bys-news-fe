@@ -29,10 +29,9 @@ export function Login(props) {
 
   return (
     <div className="Login">
-      <h2>Log in</h2>
-
       <form onSubmit={handleSubmit}>
         <label className="log-in-form">
+          <h2 className="login-h2">Log in</h2>
           <input
             className="username-box"
             placeholder="username"

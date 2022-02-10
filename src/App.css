@@ -2,6 +2,20 @@ html {
   scrollbar-color: #ee8fc5 #202020;
 }
 
+::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+  background: #202020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ee8fc5;
+  border-radius: 1ex;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 1ex;
+  -webkit-box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.75);
+}
+
 body {
   background-color: #2a2d41;
   margin: 0px;
@@ -184,11 +198,17 @@ button:hover {
   float: right;
 }
 
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .username-box {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 90%;
+  width: 600px;
   background-color: #151515;
   border: none;
   color: #00ff00;
@@ -200,7 +220,7 @@ button:hover {
 }
 
 .login-button {
-  width: 90%;
+  width: 600px;
 }
 
 .login-h4 {
@@ -233,5 +253,13 @@ button:hover {
     width: 12px;
     height: auto;
     margin-right: 4px;
+  }
+
+  .username-box {
+    width: 90%;
+  }
+
+  .login-button {
+    width: 90%;
   }
 }

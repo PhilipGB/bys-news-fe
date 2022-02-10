@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Articles } from "../components/Articles";
-import { PostArticle } from "../components/PostArticle";
+// import { PostArticle } from "../components/PostArticle";
 import { Sort } from "../components/Sort";
 
 export function Home() {
