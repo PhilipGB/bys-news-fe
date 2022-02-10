@@ -2,13 +2,19 @@ import { NavLink } from "react-router-dom";
 
 import { ageCalculator } from "../utils/ageCalculator";
 
+import {
+  LibraryIcon,
+  ThumbUpIcon,
+  SpeakerphoneIcon,
+} from "@heroicons/react/solid";
+
 export function ArticleCard(props) {
   const { article } = props;
 
   return (
-    <div className="ArticleCard">
-      <h4>
-        Topic:{" "}
+    <li className="ArticleCard">
+      <h4 className="card-info">
+        <LibraryIcon className="icons" />
         <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
         Posted by{" "}
         <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
@@ -20,8 +26,10 @@ export function ArticleCard(props) {
         </NavLink>
       </h3>
       <p>
-        ↑ {article.votes} · {article.comment_count} Comments
+        <ThumbUpIcon className="icons" />
+        {article.votes} · <SpeakerphoneIcon className="icons" />
+        {article.comment_count} Comments
       </p>
-    </div>
+    </li>
   );
 }

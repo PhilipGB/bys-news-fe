@@ -8,7 +8,7 @@ export function Home() {
 
   return (
     <div className="Home">
-      <PostArticle />
+      {/* <PostArticle /> */}
       <Sort setSort={setSort} />
       <Articles query={sort} />
     </div>

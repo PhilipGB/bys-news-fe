@@ -14,13 +14,15 @@ export function Topics() {
   }, []);
 
   return (
-    <div className="CommentCard">
-      <ul>
+    <div className="Topics">
+      <ul className="topic-list">
         {topics.map((topic, index) => {
           return (
-            <li key={index}>
+            <li key={index} className="topic-li">
               <h2>
-                <NavLink to={`/topics/${topic.slug}`}>{topic.slug}</NavLink>
+                <NavLink to={`/topics/${topic.slug}`} className="capitalize">
+                  {topic.slug}
+                </NavLink>
               </h2>
               <p>{topic.description}</p>
             </li>
@@ -29,7 +31,7 @@ export function Topics() {
       </ul>
       {topic ? (
         <div>
-          <h2>Topic: {topic}</h2>
+          <h2 className="topic-header capitalize">Topic: {topic}</h2>
           <Articles query={`?topic=${topic}`} />
         </div>
       ) : (

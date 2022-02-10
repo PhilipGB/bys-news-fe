@@ -1,3 +1,9 @@
+import {
+  CalendarIcon,
+  SpeakerphoneIcon,
+  ThumbUpIcon,
+} from "@heroicons/react/solid";
+
 export function Sort(props) {
   const { setSort } = props;
 
@@ -9,15 +15,20 @@ export function Sort(props) {
     });
   };
 
-  // date created
-  // comment_count
-  // votes
-
   return (
     <div className="Sort">
-      <button onClick={() => sortOrder("created_at")}>Date</button>
-      <button onClick={() => sortOrder("comment_count")}>Comment Count</button>
-      <button onClick={() => sortOrder("votes")}>Votes</button>
+      <button onClick={() => sortOrder("created_at")}>
+        <CalendarIcon className="icons" />
+        Date
+      </button>
+      <button onClick={() => sortOrder("comment_count")}>
+        <SpeakerphoneIcon className="icons" />
+        Comment Count
+      </button>
+      <button onClick={() => sortOrder("votes")}>
+        <ThumbUpIcon className="icons" />
+        Votes
+      </button>
     </div>
   );
 }

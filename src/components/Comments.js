@@ -22,7 +22,7 @@ export function Comments(props) {
         setComments={setComments}
         setCommentCount={setCommentCount}
       />
-      <ul>
+      <ul className="comment-list">
         {comments.map((comment, index) => {
           return <CommentCard key={index} comment={comment} />;
         })}

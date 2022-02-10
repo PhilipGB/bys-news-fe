@@ -21,14 +21,9 @@ export function Articles(props) {
 
   return (
     <div className="Articles">
-      <h2>Articles</h2>
-      <ul>
+      <ul className="article-list">
         {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <ArticleCard article={article} />
-            </li>
-          );
+          return <ArticleCard article={article} key={article.article_id} />;
         })}
       </ul>
     </div>

@@ -15,6 +15,7 @@ export function Login(props) {
       fetchUserByName(username)
         .then((res) => {
           setUser(res);
+          // useLocation
           setTimeout(() => navigate(-1), 1000);
         })
         .catch(() => alert("Invalid User Name, Try Again or Register"));
@@ -33,18 +34,20 @@ export function Login(props) {
       <form onSubmit={handleSubmit}>
         <label className="log-in-form">
           <input
-            className="input-box"
+            className="username-box"
             placeholder="username"
             value={input}
             required
             onChange={(event) => setInput(event.target.value)}
           />
-          <button type="submit">Log in</button>
+          <button type="submit" className="login-button">
+            Log in
+          </button>
         </label>
       </form>
-      <h2>
-        Or <NavLink to="/register">Register</NavLink>
-      </h2>
+      <h4 className="login-h4">
+        Don't have an account? <NavLink to="/register">Register</NavLink>
+      </h4>
     </div>
   );
 }

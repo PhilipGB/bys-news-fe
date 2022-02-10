@@ -5,6 +5,12 @@ import { fetchSingleArticle, patchArticle } from "../utils/Api";
 import { ageCalculator } from "../utils/ageCalculator";
 import { Comments } from "../components/Comments";
 
+import {
+  LibraryIcon,
+  ThumbUpIcon,
+  SpeakerphoneIcon,
+} from "@heroicons/react/solid";
+
 export function SingleArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
@@ -28,20 +34,24 @@ export function SingleArticle() {
 
   return (
     <div className="SingleArticle">
-      <h4>
-        Topic:{" "}
-        <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
-        Posted by{" "}
-        <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
-        {ageCalculator(article.created_at)}
-      </h4>
-      <h2>{article.title}</h2>
-      <p>{article.body}</p>
+      <article className="article-body">
+        <h4 className="card-info">
+          <LibraryIcon className="icons" />
+          <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
+          Posted by{" "}
+          <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
+          {ageCalculator(article.created_at)}
+        </h4>
+        <h2>{article.title}</h2>
+        <p>{article.body}</p>
+      </article>
       <p>
         <button onClick={increaseVotes} className="vote-button">
-          ↑ {votes}
+          <ThumbUpIcon className="icons" />
+          {votes}
         </button>{" "}
-        · {commentCount || 0} Comments
+        · <SpeakerphoneIcon className="icons" />
+        {commentCount || 0} Comments
       </p>
       <Comments article_id={article_id} setCommentCount={setCommentCount} />
     </div>

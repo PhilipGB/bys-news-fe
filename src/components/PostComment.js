@@ -9,6 +9,7 @@ export function PostComment(props) {
   const { article_id, setComments, setCommentCount } = props;
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const comment = { username: user.username, body: input };
     postComment(article_id, comment);
     setComments((current) => {
@@ -22,27 +23,28 @@ export function PostComment(props) {
 
   if (user) {
     return (
-      <div className="PostComment">
-        <form className="CommentForm">
-          <label>
-            <div>
-              Comment as{" "}
-              <NavLink to={`/user/${user.username}`}>{user.username}</NavLink>
-            </div>
-            <textarea
-              name="post comment"
-              placeholder="What are your thoughts?"
-              spellCheck={true}
-              value={input}
-              rows={5}
-              maxLength={1000}
-              onChange={(event) => setInput(event.target.value)}
-              wrap="hard"
-            />
-          </label>
-        </form>
-        <button onClick={handleSubmit}>Post Comment</button>
-      </div>
+      <form className="PostComment CommentForm">
+        <label>
+          <div>
+            Comment as{" "}
+            <NavLink to={`/user/${user.username}`}>{user.username}</NavLink>
+          </div>
+          <textarea
+            className="comment-textarea"
+            name="post comment"
+            placeholder="What are your thoughts?"
+            spellCheck={true}
+            value={input}
+            rows={5}
+            maxLength={1000}
+            onChange={(event) => setInput(event.target.value)}
+            wrap="hard"
+          />
+        </label>
+        <button onClick={handleSubmit} className="comment-submit">
+          Post Comment
+        </button>
+      </form>
     );
   }
   return <></>;

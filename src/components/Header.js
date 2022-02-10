@@ -2,6 +2,14 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/User";
 import { NavLink } from "react-router-dom";
 
+import {
+  HomeIcon,
+  LibraryIcon,
+  LogoutIcon,
+  UserIcon,
+  LoginIcon,
+} from "@heroicons/react/solid";
+
 export function Header() {
   const { user, setUser } = useContext(UserContext);
 
@@ -12,19 +20,36 @@ export function Header() {
   return (
     <nav className="Header flex-container">
       <span>
-        <NavLink to="/">Home</NavLink> <NavLink to="/topics">Topics</NavLink>
+        <NavLink to="/">
+          <HomeIcon className="icons" />
+          Home
+        </NavLink>{" "}
+        <NavLink to="/topics">
+          <LibraryIcon className="icons" />
+          Topics
+        </NavLink>
       </span>
       {user ? (
-        <span>
+        <span className="user-nav">
           <NavLink to="#" onClick={logout}>
+            <LogoutIcon className="icons" />
             Log Out
-          </NavLink>{" "}
-          <NavLink to={`/user/${user.username}`}>Profile</NavLink>
+          </NavLink>
+          <NavLink to={`/user/${user.username}`}>
+            <UserIcon className="icons" />
+            {user.username}
+          </NavLink>
+          <NavLink to={`/user/${user.username}`}>
+            <img className="header-avatar" src={user.avatar_url} alt="avatar" />{" "}
+          </NavLink>
         </span>
       ) : (
         <span>
-          <NavLink to="/login">Log in</NavLink> or{" "}
-          <NavLink to="/register">Register</NavLink>
+          <NavLink to="/login">
+            <LoginIcon className="icons" />
+            Log in
+          </NavLink>{" "}
+          or <NavLink to="/register">Register</NavLink>
         </span>
       )}
     </nav>
