@@ -10,6 +10,12 @@ export const fetchUserByName = (username) => {
   });
 };
 
+export const fetchUsers = () => {
+  return myApi.get(`/users`).then((res) => {
+    return res.data.users;
+  });
+};
+
 export const createUser = (user) => {
   return myApi.post(`/users`, user).then((res) => {
     return res.data.user;

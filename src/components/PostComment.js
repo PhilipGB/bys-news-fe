@@ -47,5 +47,11 @@ export function PostComment(props) {
       </form>
     );
   }
-  return <></>;
+  return (
+    <h4 className="comment-list">
+      {"("}
+      <NavLink to="/login">Log in</NavLink> or{" "}
+      <NavLink to="/register">Register</NavLink> to comment{")"}
+    </h4>
+  );
 }

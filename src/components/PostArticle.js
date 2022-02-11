@@ -4,7 +4,8 @@ import { PencilAltIcon, XIcon } from "@heroicons/react/solid";
 
 export function PostArticle() {
   const [modalClass, setModalClass] = useState("hidden-modal");
-  const [input, setInput] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
   const showNewPostForm = () => {
     if (modalClass === "modal") setModalClass("hidden-modal");
@@ -15,7 +16,7 @@ export function PostArticle() {
   return (
     <div>
       <div className={modalClass + " fade-in"}>
-        <form className="create-post-form">
+        <form className="create-post-form" name="create-post">
           <h3 className="modal-header">
             <PencilAltIcon className="icons" />
             Create a post{" "}
@@ -29,19 +30,20 @@ export function PostArticle() {
           <input
             className="post-title-box"
             placeholder="Title"
-            value={input}
+            name="title"
+            value={title}
             required
-            onChange={(event) => setInput(event.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
           />
           <textarea
             className="post-textarea"
             name="post article"
             placeholder="Article Text"
             spellCheck={true}
-            value={input}
+            value={body}
             rows={16}
             maxLength={1000}
-            onChange={(event) => setInput(event.target.value)}
+            onChange={(event) => setBody(event.target.value)}
             wrap="hard"
           />
           <hr />
