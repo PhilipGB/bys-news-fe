@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { PencilAltIcon } from "@heroicons/react/solid";
+import { PencilAltIcon, XIcon } from "@heroicons/react/solid";
 
 export function PostArticle() {
   const [modalClass, setModalClass] = useState("hidden-modal");
@@ -15,33 +15,38 @@ export function PostArticle() {
   return (
     <div>
       <div className={modalClass + " fade-in"}>
-        <h3>
-          <PencilAltIcon className="icons" />
-          Create a post
-        </h3>
-        <hr />
-        <label></label>
-        <h2>topic</h2>
-        <input
-          className="post-title-box"
-          placeholder="Title"
-          value={input}
-          required
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <textarea
-          className="post-textarea"
-          name="post article"
-          placeholder="Article Text"
-          spellCheck={true}
-          value={input}
-          rows={15}
-          maxLength={1000}
-          onChange={(event) => setInput(event.target.value)}
-          wrap="hard"
-        />
-        <hr />
-        <button onClick={showNewPostForm}>Submit</button>
+        <form className="create-post-form">
+          <h3>
+            <PencilAltIcon className="icons" />
+            Create a post
+            <button onClick={showNewPostForm} className="x-button">
+              <XIcon className="icons" />
+            </button>
+          </h3>
+          <hr />
+          <label></label>
+          <h2>topic</h2>
+          <input
+            className="post-title-box"
+            placeholder="Title"
+            value={input}
+            required
+            onChange={(event) => setInput(event.target.value)}
+          />
+          <textarea
+            className="post-textarea"
+            name="post article"
+            placeholder="Article Text"
+            spellCheck={true}
+            value={input}
+            rows={16}
+            maxLength={1000}
+            onChange={(event) => setInput(event.target.value)}
+            wrap="hard"
+          />
+          <hr />
+          <button onClick={showNewPostForm}>Submit</button>
+        </form>
       </div>
       <div className="PostArticle">
         <input

@@ -2,6 +2,12 @@ html {
   scrollbar-color: #ee8fc5 #202020;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 ::-webkit-scrollbar {
   height: 10px;
   width: 8px;
@@ -66,6 +72,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  margin-top: 20px;
 }
 
 .article-list,
@@ -77,6 +84,10 @@ body {
   padding-left: 0;
 }
 
+.newpost-box {
+  margin-top: 10px;
+}
+
 .ArticleCard,
 .CommentCard {
   border-radius: 10px;
@@ -85,26 +96,32 @@ body {
   -webkit-box-shadow: 0 3px 5px 0 #202020;
   box-shadow: 0 3px 5px 0 #202020;
   list-style-type: none;
-  padding: 1px 16px 1px;
+  padding: 16px;
   margin-bottom: 20px;
 }
 
 .SingleArticle {
-  padding: 0px;
+  padding: 16px;
 }
 
 .article-body {
   margin: 16px;
 }
 
+h4,
+h3 {
+  margin-bottom: 8px;
+}
+
 .topic-list {
-  margin: 10px;
+  margin: 20px;
   list-style-position: inside;
   padding-left: 0;
 }
 
 .topic-li {
   list-style-type: none;
+  margin-bottom: 20px;
 }
 .topic-li h2 {
   margin-bottom: 0;
@@ -246,15 +263,54 @@ button:hover {
 }
 
 .modal {
-  border-radius: 4px;
-  position: fixed !important;
-  min-height: auto;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 100%;
   z-index: 1;
+  background-color: #202020;
+  /* background-color: #2a2d41; */
+  /* margin: 5px; */
+  /* width: calc((100%) - 20px); */
+  width: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.create-post-form {
+  border-radius: 10px;
+  padding: 20px;
   background-color: #2a2d41;
-  margin: 0 20px 0;
-  width: calc((100%) - 40px);
-  box-shadow: 0px 0px 40px 25px #202020;
-  padding: 5px;
+  -moz-box-shadow: 0 3px 5px 0 #101010;
+  -webkit-box-shadow: 0 3px 5px 0 #101010;
+  box-shadow: 0 3px 5px 0 #101010;
+}
+
+.create-post-form * {
+  margin-bottom: 8px;
+}
+
+.x-button {
+  margin: 0;
+  border: none;
+  color: white;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background-color: transparent;
+  transition-duration: 0.4s;
+  float: inline-end;
+}
+
+.x-button:hover {
+  background-color: transparent;
+  color: #ff5555;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transform: scale(1.05);
 }
 
 .post-textarea,
@@ -352,5 +408,9 @@ button:hover {
 
   .login-button {
     width: 90%;
+  }
+
+  .modal {
+    padding: 4px;
   }
 }
