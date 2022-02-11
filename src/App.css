@@ -196,6 +196,13 @@ button:hover {
   transform: scale(1.05);
 }
 
+.vote-down {
+  background-color: #ff5555;
+}
+.vote-down:hover {
+  background-color: #202020;
+}
+
 .PostComment {
   padding: 5px;
   margin-left: 5px;

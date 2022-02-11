@@ -42,6 +42,7 @@ export function Comments(props) {
       />
       <ul className="comment-list">
         {comments.map((comment, index) => {
+          console.log(comment.comment_id);
           return <CommentCard key={index} comment={comment} />;
         })}
       </ul>

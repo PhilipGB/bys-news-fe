@@ -18,6 +18,7 @@ export function SingleArticle() {
   const [article, setArticle] = useState([]);
   const [votes, setVotes] = useState();
   const [commentCount, setCommentCount] = useState();
+  const [voted, setVoted] = useState(false);
 
   useEffect(() => {
     fetchSingleArticle(article_id).then((res) => {
@@ -32,6 +33,9 @@ export function SingleArticle() {
     setVotes((current) => {
       return current + votes;
     });
+    setVoted((current) => {
+      return current ? true : true;
+    });
   };
 
   return (
@@ -43,11 +47,16 @@ export function SingleArticle() {
         {/* <p>{article.body}</p> */}
       </article>
       <p>
-        <button onClick={() => changeVotes(1)} className="vote-button">
+        <button
+          disabled={voted}
+          onClick={() => changeVotes(1)}
+          className="vote-button"
+        >
           <ThumbUpIcon className="icons" />
           {votes}
         </button>
         <button
+          disabled={voted}
           onClick={() => changeVotes(-1)}
           className="vote-button vote-down"
         >
