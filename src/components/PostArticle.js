@@ -16,9 +16,9 @@ export function PostArticle() {
     <div>
       <div className={modalClass + " fade-in"}>
         <form className="create-post-form">
-          <h3>
+          <h3 className="modal-header">
             <PencilAltIcon className="icons" />
-            Create a post
+            Create a post{" "}
             <button onClick={showNewPostForm} className="x-button">
               <XIcon className="icons" />
             </button>
