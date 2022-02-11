@@ -19,7 +19,7 @@ export function Login(props) {
         .then((res) => {
           setUser(res);
           // useLocation
-          setTimeout(() => navigate(-1), 1000);
+          setTimeout(() => navigate("/"), 1000);
         })
         .catch(() => alert("Invalid User Name, Try Again or Register"));
     }

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 
 import { fetchArticles } from "../utils/Api";
 
+import { PostArticle } from "../components/PostArticle";
 import { ArticleCard } from "../components/ArticleCard";
 
 import loadingSVG from "../svg/loading.svg";
 
 export function Articles(props) {
   const [articles, setArticles] = useState([]);
-  const { query } = props;
+  const { query, user } = props;
 
   useEffect(() => {
     fetchArticles(query).then((res) => {
@@ -21,6 +22,7 @@ export function Articles(props) {
 
   return (
     <div className="Articles">
+      {user ? <PostArticle setArticles={setArticles} /> : <></>}
       <ul className="article-list">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;

@@ -38,6 +38,10 @@ export const patchArticle = (article_id) => {
   return myApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
 };
 
+export const postArticle = (article) => {
+  return myApi.post(`/articles`, article).then((res) => res.data.article);
+};
+
 export const fetchComments = (article_id) => {
   return myApi
     .get(`/articles/${article_id}/comments`)

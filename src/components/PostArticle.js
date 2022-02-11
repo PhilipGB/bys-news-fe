@@ -1,16 +1,49 @@
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { UserContext } from "../contexts/User";
 
 import { PencilAltIcon, XIcon } from "@heroicons/react/solid";
+import { fetchTopics, postArticle } from "../utils/Api";
 
-export function PostArticle() {
+export function PostArticle(props) {
+  const { setArticles } = props;
+  const { user } = useContext(UserContext);
   const [modalClass, setModalClass] = useState("hidden-modal");
+  const [topic, setTopic] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [topics, setTopics] = useState([]);
 
-  const showNewPostForm = () => {
+  useEffect(() => {
+    fetchTopics().then((res) => {
+      setTopics(res);
+    });
+  }, []);
+
+  const showNewPostForm = (e) => {
+    e.preventDefault();
     if (modalClass === "modal") setModalClass("hidden-modal");
     else setModalClass("modal");
-    console.log(modalClass);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const article = {
+      author: user.username,
+      title: title,
+      topic: topic,
+      body: body,
+    };
+
+    postArticle(article).then((res) => {
+      setArticles((current) => {
+        return [res, ...current];
+      });
+    });
+
+    setTopic("");
+    setTitle("");
+    setBody("");
+    setModalClass("hidden-modal");
   };
 
   return (
@@ -26,7 +59,22 @@ export function PostArticle() {
           </h3>
           <hr />
           <label></label>
-          <h2>topic</h2>
+          <select
+            name="topicList"
+            id="topicList"
+            className="topic-dropdown"
+            defaultValue="default"
+            onChange={(e) => setTopic(e.target.value)}
+          >
+            <option value="default" disabled="disabled">
+              Choose a Topic
+            </option>
+            {topics.map((topic, index) => (
+              <option key={index} value={topic.slug}>
+                Topic: {topic.slug}
+              </option>
+            ))}
+          </select>
           <input
             className="post-title-box"
             placeholder="Title"
@@ -47,7 +95,7 @@ export function PostArticle() {
             wrap="hard"
           />
           <hr />
-          <button onClick={showNewPostForm}>Submit</button>
+          <button onClick={handleSubmit}>Submit</button>
         </form>
       </div>
       <div className="PostArticle">

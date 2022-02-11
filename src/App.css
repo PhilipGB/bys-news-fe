@@ -201,7 +201,8 @@ button:hover {
 
 .comment-textarea,
 .post-textarea,
-.post-title-box {
+.post-title-box,
+.topic-dropdown {
   resize: vertical;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

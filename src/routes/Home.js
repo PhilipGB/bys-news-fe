@@ -4,7 +4,6 @@ import { UserContext } from "../contexts/User";
 import { useState } from "react";
 
 import { Articles } from "../components/Articles";
-import { PostArticle } from "../components/PostArticle";
 import { Sort } from "../components/Sort";
 
 export function Home() {
@@ -13,9 +12,8 @@ export function Home() {
 
   return (
     <div className="Home">
-      {user ? <PostArticle /> : <></>}
       <Sort setSort={setSort} />
-      <Articles query={sort} />
+      <Articles query={sort} user={user} />
     </div>
   );
 }
