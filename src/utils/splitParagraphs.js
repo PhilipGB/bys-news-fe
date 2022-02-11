@@ -1,4 +1,4 @@
-export const splitParagraph = (body) => {
+export const splitParagraph = (body = "") => {
   const bodyArray = body.split("\n");
 
   return bodyArray.map((p, index) => {

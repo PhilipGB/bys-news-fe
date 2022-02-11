@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { fetchSingleArticle, patchArticle } from "../utils/Api";
-import { ageCalculator } from "../utils/ageCalculator";
+import { splitParagraph } from "../utils/splitParagraphs";
+
 import { Comments } from "../components/Comments";
 
 import {
-  LibraryIcon,
   ThumbUpIcon,
+  ThumbDownIcon,
   SpeakerphoneIcon,
 } from "@heroicons/react/solid";
+import { ArticleHeader } from "../components/ArticleHeader";
 
 export function SingleArticle() {
   const { article_id } = useParams();
@@ -25,30 +27,31 @@ export function SingleArticle() {
     });
   }, [article_id]);
 
-  const increaseVotes = () => {
-    patchArticle(article_id);
+  const changeVotes = (votes) => {
+    patchArticle(article_id, votes);
     setVotes((current) => {
-      return current + 1;
+      return current + votes;
     });
   };
 
   return (
     <div className="SingleArticle">
       <article className="article-body">
-        <h4 className="card-info">
-          <LibraryIcon className="icons" />
-          <NavLink to={`/topics/${article.topic}`}>{article.topic}</NavLink> -
-          Posted by{" "}
-          <NavLink to={`/user/${article.author}`}>{article.author}</NavLink>{" "}
-          {ageCalculator(article.created_at)}
-        </h4>
+        <ArticleHeader article={article} />
         <h2>{article.title}</h2>
-        <p>{article.body}</p>
+        {splitParagraph(article.body)}
+        {/* <p>{article.body}</p> */}
       </article>
       <p>
-        <button onClick={increaseVotes} className="vote-button">
+        <button onClick={() => changeVotes(1)} className="vote-button">
           <ThumbUpIcon className="icons" />
           {votes}
+        </button>
+        <button
+          onClick={() => changeVotes(-1)}
+          className="vote-button vote-down"
+        >
+          <ThumbDownIcon className="icons" />
         </button>{" "}
         · <SpeakerphoneIcon className="icons" />
         {commentCount || 0} Comments

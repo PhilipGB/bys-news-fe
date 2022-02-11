@@ -34,8 +34,8 @@ export const fetchSingleArticle = (article_id) => {
   });
 };
 
-export const patchArticle = (article_id) => {
-  return myApi.patch(`/articles/${article_id}`, { inc_votes: 1 });
+export const patchArticle = (article_id, votes) => {
+  return myApi.patch(`/articles/${article_id}`, { inc_votes: votes });
 };
 
 export const postArticle = (article) => {

@@ -75,6 +75,10 @@ body {
   margin-top: 20px;
 }
 
+.svg-small {
+  width: 20%;
+}
+
 .article-list,
 .comment-list,
 .Login,
@@ -320,6 +324,16 @@ button:hover {
 .post-textarea,
 .post-title-box {
   font-size: x-large;
+}
+
+.no-comments {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.svg-x-small {
+  width: 32px;
+  height: auto;
 }
 
 .fade-in {
