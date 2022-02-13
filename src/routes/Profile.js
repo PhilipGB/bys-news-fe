@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Articles } from "../components/Articles";
+import { UserComments } from "../components/UsersComments";
 
 import { fetchUserByName } from "../utils/Api";
 
@@ -24,6 +25,7 @@ export function Profile() {
       <h2>Posts</h2>
       <Articles query={`?author=${profile.username}`} />
       <h2>Comments</h2>
+      <UserComments username={username} />
     </div>
   );
 }

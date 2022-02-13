@@ -43,9 +43,16 @@ export const postArticle = (article) => {
 };
 
 export const fetchComments = (article_id) => {
-  return myApi
-    .get(`/articles/${article_id}/comments`)
-    .then((res) => res.data.comments);
+  return myApi.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
+};
+
+export const fetchUsersComments = (username) => {
+  return myApi.get(`/users/${username}/comments`).then((res) => {
+    console.log(res);
+    return res.data.comments;
+  });
 };
 
 export const postComment = (article_id, comment) => {
