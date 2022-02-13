@@ -11,6 +11,7 @@ import { Register } from "./routes/Register";
 import { Profile } from "./routes/Profile";
 import { SingleArticle } from "./routes/SingleArticle";
 import { Topics } from "./routes/Topics";
+import { My404Component } from "./components/404Component";
 
 function App() {
   const [user, setUser] = useState({ username: null });
@@ -28,6 +29,7 @@ function App() {
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route path="/topics" element={<Topics />} />
             <Route path="/topics/:topic" element={<Topics />} />
+            <Route path="*" exact={true} element={<My404Component />} />
           </Routes>
         </div>
       </BrowserRouter>

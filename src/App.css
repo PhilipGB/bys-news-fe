@@ -335,7 +335,8 @@ button:hover {
   font-size: x-large;
 }
 
-.no-comments {
+.no-comments,
+.My404Component {
   margin-top: 25px;
   text-align: center;
 }
