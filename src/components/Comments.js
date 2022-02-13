@@ -31,8 +31,6 @@ export function Comments(props) {
       });
   }, [article_id]);
 
-  if (comments.length === 0) return placeholder;
-
   return (
     <div className="Comments">
       <PostComment
@@ -40,12 +38,22 @@ export function Comments(props) {
         setComments={setComments}
         setCommentCount={setCommentCount}
       />
-      <ul className="comment-list">
-        {comments.map((comment, index) => {
-          console.log(comment.comment_id);
-          return <CommentCard key={index} comment={comment} />;
-        })}
-      </ul>
+      {comments.length ? (
+        <ul className="comment-list">
+          {comments.map((comment, index) => {
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                index={index}
+                comment={comment}
+                setComments={setComments}
+              />
+            );
+          })}
+        </ul>
+      ) : (
+        placeholder
+      )}
     </div>
   );
 }

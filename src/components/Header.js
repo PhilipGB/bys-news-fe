@@ -14,7 +14,7 @@ export function Header() {
   const { user, setUser } = useContext(UserContext);
 
   const logout = () => {
-    setUser(null);
+    setUser({});
   };
 
   return (
@@ -29,7 +29,7 @@ export function Header() {
           Topics
         </NavLink>
       </span>
-      {user ? (
+      {user.username ? (
         <span className="user-nav">
           <NavLink to="#" onClick={logout}>
             <LogoutIcon className="icons" />

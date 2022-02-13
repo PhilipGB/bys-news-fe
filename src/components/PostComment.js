@@ -11,9 +11,11 @@ export function PostComment(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const comment = { username: user.username, body: input };
-    postComment(article_id, comment);
-    setComments((current) => {
-      return [comment, ...current];
+    postComment(article_id, comment).then((res) => {
+      setComments((current) => {
+        comment.comment_id = res.comment_id;
+        return [comment, ...current];
+      });
     });
     setCommentCount((current) => {
       return current + 1;

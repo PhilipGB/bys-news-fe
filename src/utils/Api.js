@@ -49,7 +49,13 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment) => {
-  return myApi.post(`/articles/${article_id}/comments`, comment);
+  return myApi
+    .post(`/articles/${article_id}/comments`, comment)
+    .then((res) => res.data.comment);
+};
+
+export const deleteComment = (comment_id) => {
+  return myApi.delete(`/comments/${comment_id}`);
 };
 
 export const fetchTopics = () => {
