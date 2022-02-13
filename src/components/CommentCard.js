@@ -7,11 +7,14 @@ import { splitParagraph } from "../utils/splitParagraphs";
 import { deleteComment } from "../utils/Api";
 
 export function CommentCard(props) {
-  const { comment, index, setComments } = props;
+  const { comment, index, setComments, setCommentCount } = props;
   const { user } = useContext(UserContext);
 
   const deleteCommentByID = (comment_id, index) => {
     deleteComment(comment_id);
+    setCommentCount((current) => {
+      return current - 1;
+    });
     setComments((current) => {
       const newArray = [...current];
       newArray.splice(index, 1);
