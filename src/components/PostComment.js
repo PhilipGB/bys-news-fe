@@ -23,7 +23,7 @@ export function PostComment(props) {
     setInput("");
   };
 
-  if (user) {
+  if (user.username) {
     return (
       <form className="PostComment CommentForm">
         <label>

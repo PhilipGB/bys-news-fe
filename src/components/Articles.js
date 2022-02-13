@@ -22,7 +22,7 @@ export function Articles(props) {
 
   return (
     <div className="Articles">
-      {user ? <PostArticle setArticles={setArticles} /> : <></>}
+      {user.username ? <PostArticle setArticles={setArticles} /> : <></>}
       <ul className="article-list">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
