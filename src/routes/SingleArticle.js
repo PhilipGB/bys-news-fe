@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { fetchSingleArticle, patchArticle } from "../utils/Api";
 import { splitParagraph } from "../utils/splitParagraphs";
@@ -19,14 +19,17 @@ export function SingleArticle() {
   const [votes, setVotes] = useState();
   const [commentCount, setCommentCount] = useState();
   const [voted, setVoted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchSingleArticle(article_id).then((res) => {
-      setArticle(res);
-      setVotes(res.votes);
-      setCommentCount(res.comment_count);
-    });
-  }, [article_id]);
+    fetchSingleArticle(article_id)
+      .then((res) => {
+        setArticle(res);
+        setVotes(res.votes);
+        setCommentCount(res.comment_count);
+      })
+      .catch(() => navigate("/404"));
+  }, [article_id, navigate]);
 
   const changeVotes = (votes) => {
     patchArticle(article_id, votes);
