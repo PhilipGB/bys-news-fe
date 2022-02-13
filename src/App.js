@@ -13,7 +13,7 @@ import { SingleArticle } from "./routes/SingleArticle";
 import { Topics } from "./routes/Topics";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({ username: null });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

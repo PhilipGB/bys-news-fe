@@ -23,12 +23,13 @@ html {
 }
 
 body {
-  background-color: #2a2d41;
   margin: 0px;
   padding: 0px;
+  background-color: #1b1b1f;
 }
 
 .App {
+  background-color: #2a2d41;
   color: #f8f8f2;
 }
 
@@ -43,6 +44,7 @@ body {
   padding-right: 16px;
   height: 40px;
   align-items: center;
+  width: 100%;
 }
 
 .user-nav {

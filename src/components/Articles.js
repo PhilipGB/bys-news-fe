@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
+
 import { useEffect, useState } from "react";
 
 import { fetchArticles } from "../utils/Api";
@@ -8,8 +11,9 @@ import { ArticleCard } from "../components/ArticleCard";
 import loadingSVG from "../svg/loading.svg";
 
 export function Articles(props) {
+  const { user } = useContext(UserContext);
   const [articles, setArticles] = useState([]);
-  const { query, user } = props;
+  const { query } = props;
 
   useEffect(() => {
     fetchArticles(query).then((res) => {
