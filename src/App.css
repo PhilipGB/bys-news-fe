@@ -131,7 +131,8 @@ h2 {
 }
 
 .topic-list {
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   list-style-position: inside;
   padding-left: 0;
 }

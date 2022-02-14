@@ -30,7 +30,7 @@ export function Register() {
 
   return (
     <div className="Register">
-      <h2>Register</h2>
+      <h2>!Register! - Work in progress</h2>
       <form onSubmit={handleSubmit}>
         <label className="sign-in-form">
           <input
