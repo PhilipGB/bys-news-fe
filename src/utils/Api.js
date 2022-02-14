@@ -50,7 +50,6 @@ export const fetchComments = (article_id) => {
 
 export const fetchUsersComments = (username) => {
   return myApi.get(`/users/${username}/comments`).then((res) => {
-    console.log(res);
     return res.data.comments;
   });
 };

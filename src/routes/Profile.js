@@ -18,13 +18,22 @@ export function Profile() {
 
   return (
     <div className="Profile">
-      <h2>Profile</h2>
-      <h3>{profile.username}</h3>
-      <h4>{profile.name}</h4>
-      <img src={profile.avatar_url} alt={profile.username} className="avatar" />
-      <h2>Posts</h2>
+      <div className="profile-card">
+        <div className="profile-box">
+          <img
+            src={profile.avatar_url}
+            alt={profile.username}
+            className="avatar"
+          />
+        </div>
+        <div className="profile-box">
+          <h2>{profile.username}</h2>
+          <h3>{profile.name}</h3>
+        </div>
+      </div>
       <Articles query={`?author=${profile.username}`} />
-      <h2>Comments</h2>
+      <hr />
+      <br />
       <UserComments username={username} />
     </div>
   );

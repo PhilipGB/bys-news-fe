@@ -61,6 +61,16 @@ body {
   border-radius: 16px;
 }
 
+.Home,
+.SingleArticle,
+.Profile,
+.Topics,
+.create-post-form {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Sort {
   margin-top: 8px;
   display: flex;
@@ -113,6 +123,7 @@ body {
   margin: 10px;
 }
 
+h5,
 h4,
 h3,
 h2 {
@@ -140,9 +151,29 @@ h2 {
   margin: 32px 10px 0px;
 }
 
+.Profile {
+  margin-top: 32px;
+}
+
+.profile-card {
+  display: inline-flex;
+  margin-bottom: 32px;
+  padding: 16px;
+}
+
+.profile-box {
+  flex: auto;
+  margin-right: 32px;
+}
+
 .avatar {
+  border-radius: 8px;
   width: 210px;
   height: auto;
+
+  -moz-box-shadow: 3px 3px 5px 6px #202020;
+  -webkit-box-shadow: 3px 3px 5px 6px #202020;
+  box-shadow: 3px 3px 5px 6px #202020;
 }
 
 .icons {

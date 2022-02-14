@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { CommentCard } from "./CommentCard";
+import { ProfileCommentsCard } from "./ProfileCommentsCard";
 
 import { fetchUsersComments } from "../utils/Api";
 import { SpeakerphoneIcon } from "@heroicons/react/solid";
@@ -27,15 +27,18 @@ export function UserComments(props) {
 
   return (
     <div className="Comments">
+      <h2>{comments.length || 0} Comments</h2>
+
       {comments.length ? (
         <ul className="comment-list">
           {comments.map((comment, index) => {
             return (
-              <CommentCard
+              <ProfileCommentsCard
                 key={comment.comment_id}
                 index={index}
                 comment={comment}
                 setComments={setComments}
+                setCommentCount={() => null}
               />
             );
           })}

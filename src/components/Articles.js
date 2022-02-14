@@ -27,7 +27,9 @@ export function Articles(props) {
   return (
     <div className="Articles">
       {user.username ? <PostArticle setArticles={setArticles} /> : <></>}
+
       <ul className="article-list">
+        <h2>{articles.length || 0} Articles</h2>
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
         })}
