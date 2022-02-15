@@ -473,4 +473,16 @@ button:hover {
   .modal {
     padding: 4px;
   }
+
+  .profile-card {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0%;
+    margin-bottom: 0px;
+    margin-left: 16px;
+  }
+
+  .profile-box {
+    flex: content;
+  }
 }
