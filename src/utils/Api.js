@@ -42,6 +42,10 @@ export const postArticle = (article) => {
   return myApi.post(`/articles`, article).then((res) => res.data.article);
 };
 
+export const deleteArticle = (article_id) => {
+  return myApi.delete(`/articles/${article_id}`);
+};
+
 export const fetchComments = (article_id) => {
   return myApi.get(`/articles/${article_id}/comments`).then((res) => {
     return res.data.comments;
