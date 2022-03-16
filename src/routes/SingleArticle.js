@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
-import { fetchSingleArticle, patchArticle } from "../utils/Api";
-import { splitParagraph } from "../utils/splitParagraphs";
+import { fetchSingleArticle, patchArticle } from '../utils/Api';
+import { splitParagraph } from '../utils/splitParagraphs';
 
-import { Comments } from "../components/Comments";
+import { Comments } from '../components/Comments';
 
 import {
   ThumbUpIcon,
   ThumbDownIcon,
   SpeakerphoneIcon,
-} from "@heroicons/react/solid";
-import { ArticleHeader } from "../components/ArticleHeader";
+} from '@heroicons/react/solid';
+import { ArticleHeader } from '../components/ArticleHeader';
 
 export function SingleArticle() {
   const { article_id } = useParams();
@@ -28,7 +30,7 @@ export function SingleArticle() {
         setVotes(res.votes);
         setCommentCount(res.comment_count);
       })
-      .catch(() => navigate("/404"));
+      .catch(() => navigate('/404'));
   }, [article_id, navigate]);
 
   const changeVotes = (votes) => {
@@ -42,30 +44,30 @@ export function SingleArticle() {
   };
 
   return (
-    <div className="SingleArticle">
-      <article className="article-body">
+    <div className='SingleArticle'>
+      <article className='article-body'>
         <ArticleHeader article={article} />
         <h2>{article.title}</h2>
-        {splitParagraph(article.body)}
-        {/* <p>{article.body}</p> */}
+        {/* {splitParagraph(article.body)} */}
+        <ReactMarkdown children={article.body} remarkPlugins={[remarkGfm]} />
       </article>
       <p>
         <button
           disabled={voted}
           onClick={() => changeVotes(1)}
-          className="vote-button"
+          className='vote-button'
         >
-          <ThumbUpIcon className="icons" />
+          <ThumbUpIcon className='icons' />
           {votes}
         </button>
         <button
           disabled={voted}
           onClick={() => changeVotes(-1)}
-          className="vote-button vote-down"
+          className='vote-button vote-down'
         >
-          <ThumbDownIcon className="icons" />
-        </button>{" "}
-        · <SpeakerphoneIcon className="icons" />
+          <ThumbDownIcon className='icons' />
+        </button>{' '}
+        · <SpeakerphoneIcon className='icons' />
         {commentCount || 0} Comments
       </p>
       <Comments article_id={article_id} setCommentCount={setCommentCount} />
