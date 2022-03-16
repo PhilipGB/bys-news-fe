@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 import { fetchSingleArticle, patchArticle } from '../utils/Api';
-import { splitParagraph } from '../utils/splitParagraphs';
 
 import { Comments } from '../components/Comments';
 
