@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const myApi = axios.create({
-  baseURL: "https://bys-news.herokuapp.com/api",
+  // baseURL: "https://bys-news.herokuapp.com/api",
+  baseURL: 'http://127.0.0.1:9090/api',
 });
 
 export const fetchUserByName = (username) => {
@@ -22,7 +23,7 @@ export const createUser = (user) => {
   });
 };
 
-export const fetchArticles = (query = "") => {
+export const fetchArticles = (query = '') => {
   return myApi.get(`/articles${query}`).then((res) => {
     return res.data.articles;
   });
