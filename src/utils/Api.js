@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const myApi = axios.create({
-  // baseURL: "https://bys-news.herokuapp.com/api",
-  baseURL: 'http://127.0.0.1:9090/api',
+  baseURL: 'https://bys-news.onrender.com/api',
+  // baseURL: 'http://127.0.0.1:9090/api',
 });
 
 export const fetchUserByName = (username) => {
