@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { UserContext } from "../contexts/User";
-
-import { useEffect, useState } from "react";
-
-import { fetchArticles, deleteArticle } from "../utils/Api";
-
-import { PostArticle } from "../components/PostArticle";
-import { ArticleCard } from "../components/ArticleCard";
-
-import loadingSVG from "../svg/loading.svg";
+import { useContext } from 'react';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { fetchArticles, deleteArticle } from '../utils/Api.jsx';
+import { PostArticle } from './PostArticle.jsx';
+import { ArticleCard } from './ArticleCard.jsx';
+import { UserContext } from '../contexts/User.jsx';
+import loadingSVG from '../svg/loading.svg';
 
 export function Articles(props) {
   const { user } = useContext(UserContext);
@@ -32,13 +29,13 @@ export function Articles(props) {
   };
 
   if (articles.length === 0)
-    return <img src={loadingSVG} alt="loading" className="loadingSVG" />;
+    return <img src={loadingSVG} alt='loading' className='loadingSVG' />;
 
   return (
-    <div className="Articles">
+    <div className='Articles'>
       {user.username ? <PostArticle setArticles={setArticles} /> : <></>}
 
-      <ul className="article-list">
+      <ul className='article-list'>
         <h2>{articles.length || 0} Articles</h2>
         {articles.map((article, index) => {
           return (
@@ -54,3 +51,7 @@ export function Articles(props) {
     </div>
   );
 }
+
+Articles.propTypes = {
+  query: PropTypes.string.isRequired,
+};

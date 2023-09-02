@@ -1,1 +1,0 @@
-export function TypeAheadDropDown({ list }) {}

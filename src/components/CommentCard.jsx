@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { UserContext } from "../contexts/User";
-
-import { XIcon } from "@heroicons/react/solid";
-import { NavLink } from "react-router-dom";
-import { splitParagraph } from "../utils/splitParagraphs";
-import { deleteComment } from "../utils/Api";
+import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { XMarkIcon } from '@heroicons/react/24/solid';
+import { UserContext } from '../contexts/User.jsx';
+import { splitParagraph } from '../utils/splitParagraphs.jsx';
+import { deleteComment } from '../utils/Api.jsx';
 
 export function CommentCard(props) {
   const { comment, index, setComments, setCommentCount } = props;
@@ -23,16 +23,16 @@ export function CommentCard(props) {
   };
 
   return (
-    <li className="CommentCard">
+    <li className='CommentCard'>
       <h4>
-        Posted by{" "}
+        Posted by{' '}
         <NavLink to={`/user/${comment.username}`}>{comment.username}</NavLink>
         {comment.username === user.username ? (
           <button
             onClick={() => deleteCommentByID(comment.comment_id, index)}
-            className="x-button"
+            className='x-button'
           >
-            <XIcon className="icons" />
+            <XMarkIcon className='icons' />
           </button>
         ) : null}
       </h4>
@@ -40,3 +40,10 @@ export function CommentCard(props) {
     </li>
   );
 }
+
+CommentCard.propTypes = {
+  comment: PropTypes.object,
+  index: PropTypes.number,
+  setComments: PropTypes.func,
+  setCommentCount: PropTypes.func,
+};

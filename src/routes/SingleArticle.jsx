@@ -2,16 +2,13 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
 import { fetchSingleArticle, patchArticle } from '../utils/Api';
-
 import { Comments } from '../components/Comments';
-
 import {
-  ThumbUpIcon,
-  ThumbDownIcon,
-  SpeakerphoneIcon,
-} from '@heroicons/react/solid';
+  HandThumbUpIcon,
+  HandThumbDownIcon,
+  ChatBubbleBottomCenterTextIcon,
+} from '@heroicons/react/24/solid';
 import { ArticleHeader } from '../components/ArticleHeader';
 
 export function SingleArticle() {
@@ -47,8 +44,9 @@ export function SingleArticle() {
       <article className='article-body'>
         <ArticleHeader article={article} />
         <h2>{article.title}</h2>
-        {/* {splitParagraph(article.body)} */}
-        <ReactMarkdown children={article.body} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {article.body}
+        </ReactMarkdown>
       </article>
       <p>
         <button
@@ -56,7 +54,7 @@ export function SingleArticle() {
           onClick={() => changeVotes(1)}
           className='vote-button'
         >
-          <ThumbUpIcon className='icons' />
+          <HandThumbUpIcon className='icons' />
           {votes}
         </button>
         <button
@@ -64,9 +62,9 @@ export function SingleArticle() {
           onClick={() => changeVotes(-1)}
           className='vote-button vote-down'
         >
-          <ThumbDownIcon className='icons' />
+          <HandThumbDownIcon className='icons' />
         </button>{' '}
-        · <SpeakerphoneIcon className='icons' />
+        · <ChatBubbleBottomCenterTextIcon className='icons' />
         {commentCount || 0} Comments
       </p>
       <Comments article_id={article_id} setCommentCount={setCommentCount} />
